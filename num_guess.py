@@ -1,31 +1,31 @@
 import random
-lower_limit = int(input("Enter the lower limit: "))
+lower_limit = int(input("\n\nEnter the lower limit: "))
 upper = int(input('Enter the upper limit: '))
-guess = 0
+guess = 10
+n = random.randint(lower_limit, upper)
 
-while (guess < 10):
-    guess = guess + 1
+while (guess > 0):
+    guess -= 1
 
-    n = random.randint(lower_limit, upper)
-
-    user = int(input("Enter a guess: "))
+    user = int(input("\nEnter a guess: "))
 
     if (user < lower_limit) or (user > upper):
         print("You exceeded the limit!\nGame Over!")
         break
 
     elif user == n:
-        print("Congratulations you have guessed the correct number!")
+        print(
+            f"Congratulations you have guessed the correct number in {guess} tries!")
         break
 
     elif user > n:
-        print('Please guess a little lower')
+        print('Please guess a little lower\n')
 
-    else:
-        print('Please guess a little higher')
+    elif user < n:
+        print('Please guess a little higher\n')
 
-    print(10-guess, 'no. of guesses left')
+    print(guess, 'no. of guesses left')
 
-    if guess == 10:
-        print(f"You lose the number was {n}")
+    if guess == 0:
+        print("You Lose! Better Luck nexr time\n")
         break
