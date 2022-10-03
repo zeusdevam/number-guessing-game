@@ -1,19 +1,36 @@
-n = 17
+import random
+play = str(input('Type YES to play the game: '))
 guess = 1
-print('You have total 9 guesses available')
-while(guess<=9):
-    user = int(input("Enter a guess: "))
-    if user == n:
-        print("Congratulations you have guessed the correct number!")
+
+while (guess <= 9):
+    if play.lower() == 'no':
         break
-
-    elif user > n:
-        print('Please guess a little lower')
-
     else:
-        print('Please guess a little higher')
-    print(9-guess, 'no. of guesses left')
-    guess = guess + 1
+        pass
 
-    if guess > 9:
-        print("You lose")
+        lower = int(input("Enter the lower limit: "))
+        upper = int(input('Enter the upper limit: '))
+        n = random.randint(lower, upper)
+
+        print('You have total 9 guesses available')
+
+        user = int(input("Enter a guess: "))
+
+        if (user < lower) or (user > upper):
+            print("You exceeded the limit!\nGame Over!")
+            break
+        if user == n:
+            print("Congratulations you have guessed the correct number!")
+            break
+
+        elif user > n:
+            print('Please guess a little lower')
+
+        else:
+            print('Please guess a little higher')
+
+        print(9-guess, 'no. of guesses left')
+        guess = guess + 1
+
+        if guess > 9:
+            print(f"You lose the number was {n}")
