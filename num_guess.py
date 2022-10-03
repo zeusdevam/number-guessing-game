@@ -14,7 +14,7 @@ while (guess < 10):
         print("You exceeded the limit!\nGame Over!")
         break
 
-    if user == n:
+    elif user == n:
         print("Congratulations you have guessed the correct number!")
         break
 
