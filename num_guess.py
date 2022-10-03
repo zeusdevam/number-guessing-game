@@ -3,7 +3,7 @@ lower_limit = int(input("Enter the lower limit: "))
 upper = int(input('Enter the upper limit: '))
 guess = 0
 
-while (guess < 9):
+while (guess < 10):
     guess = guess + 1
 
     n = random.randint(lower_limit, upper)
@@ -24,7 +24,8 @@ while (guess < 9):
     else:
         print('Please guess a little higher')
 
-    print(9-guess, 'no. of guesses left')
+    print(10-guess, 'no. of guesses left')
 
-    if guess >= 9:
+    if guess == 10:
         print(f"You lose the number was {n}")
+        break
